@@ -4,10 +4,12 @@ const getGoals = async (req, res) => {
   const goals = await Goal.find();
   res.status(200).json(goals);
 };
+
 const createGoal = async (req, res) => {
   const goal = await Goal.create(req.body);
   res.status(201).json(goal);
 };
+
 const updateGoal = async (req, res) => {
   const goal = await Goal.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
@@ -19,6 +21,7 @@ const updateGoal = async (req, res) => {
     res.status(200).json(goal);
   }
 };
+
 const deleteGoal = async (req, res) => {
   const goal = await Goal.findByIdAndRemove(req.params.id);
   if (!goal) {
