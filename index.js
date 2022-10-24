@@ -5,6 +5,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 
+const goalsRoutes = require('./routes/goals');
 const errorHandler = require('./middlewares/error');
 
 const app = express();
@@ -22,9 +23,7 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Hello World' });
-});
+app.use('/api/v1/goals', goalsRoutes);
 
 app.use(errorHandler);
 app.use((req, res) => {
