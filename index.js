@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 
 const goalsRoutes = require('./routes/goals');
+const usersRoutes = require('./routes/users');
 const errorHandler = require('./middlewares/error');
 
 const app = express();
@@ -23,6 +24,7 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use('/api/v1/users', usersRoutes);
 app.use('/api/v1/goals', goalsRoutes);
 
 app.use(errorHandler);
