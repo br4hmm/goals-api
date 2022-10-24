@@ -1,0 +1,32 @@
+{
+  "name": "goals-api",
+  "version": "1.0.0",
+  "description": "Goals REST API with JWT Auth built with Express.js & MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index",
+    "dev": "cross-env NODE_ENV=development nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/br4hmm/goals-api.git"
+  },
+  "keywords": [],
+  "author": "Ibrahim Abu Ghali",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/br4hmm/goals-api/issues"
+  },
+  "homepage": "https://github.com/br4hmm/goals-api#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "mongoose": "^6.6.7",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.20"
+  }
+}
