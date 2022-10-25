@@ -7,7 +7,7 @@ const getGoals = async (req, res) => {
 
 const createGoal = async (req, res) => {
   const goal = await Goal.create(req.body);
-  res.status(201).json(goal);
+  res.status(201).json({ id: goal._id, text: goal.text });
 };
 
 const updateGoal = async (req, res) => {
@@ -18,7 +18,7 @@ const updateGoal = async (req, res) => {
   if (!goal) {
     res.status(404).json({ message: `No goal with id: ${req.params.id}` });
   } else {
-    res.status(200).json(goal);
+    res.status(200).json({ id: goal._id, text: goal.text });
   }
 };
 
@@ -27,7 +27,7 @@ const deleteGoal = async (req, res) => {
   if (!goal) {
     res.status(404).json({ message: `No goal with id: ${req.params.id}` });
   } else {
-    res.status(200).json(goal);
+    res.status(200).json({ id: goal._id, text: goal.text });
   }
 };
 
