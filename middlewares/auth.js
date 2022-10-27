@@ -6,16 +6,21 @@ const reqAuth = async (req, res, next) => {
   let token;
 
   if (auth && auth.startsWith('Bearer')) {
-    token = auth.split(' ')[1];
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = await User.findById(payload.id).select('-password');
+    try {
+      token = auth.split(' ')[1];
+      const payload = jwt.verify(token, process.env.JWT_SECRET);
+      req.user = await User.findById(payload.id).select('-password');
+      next();
+    } catch (err) {
+      res.status(401);
+      throw new Error('Not Authorized');
+    }
   }
 
   if (!token) {
-    res.status(401).json({ message: 'Not Authorized!, No Token' });
+    res.status(401);
+    throw new Error('Not Authorized, No Token');
   }
-
-  next();
 };
 
 module.exports = { reqAuth };

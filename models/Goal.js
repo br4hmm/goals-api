@@ -9,7 +9,7 @@ const GoalSchema = new mongoose.Schema(
     },
     text: {
       type: String,
-      required: [true, 'Please add the text field'],
+      required: true,
       trim: true,
     },
   },
