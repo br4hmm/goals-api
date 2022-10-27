@@ -13,6 +13,10 @@ const errorHandler = (err, req, res, next) => {
     if (message.includes('password')) message = err.errors.password.message;
   }
 
+  if (message.includes('invalid')) {
+    code = 401;
+  }
+
   res.status(code).json({ message });
 };
 
