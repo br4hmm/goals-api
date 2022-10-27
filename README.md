@@ -1,6 +1,6 @@
 # Goals API
 
-Goals REST API with JWT Auth built with Express.js & MongoDB
+Goals REST API with JWT Auth built using Express.js & MongoDB
 
 ## All Routes
 
